@@ -1,8 +1,10 @@
 "use client";
+import { Suspense } from "react";
 import React from "react";
 import Repo from "@/app/components/Repo";
 import Link from "next/link";
 import { BiArrowBack } from "react-icons/bi";
+import RepoDirs from "@/app/components/RepoDirs";
 
 const RepoPage = ({ params: { name } }) => {
   return (
@@ -16,7 +18,12 @@ const RepoPage = ({ params: { name } }) => {
           <span className="ml-2"> Back to repos</span>
         </Link>
         <h2 className="font-bold text-lg">{name}</h2>
-        <Repo name={name} />
+        <Suspense fallback={<div>Loading repo...</div>}>
+          <Repo name={name} />
+        </Suspense>
+        <Suspense fallback={<div>Loading directories...</div>}>
+          <RepoDirs name={name} />
+        </Suspense>
       </div>
     </div>
   );
