@@ -7,6 +7,9 @@ const fetchRepos = async () => {
       method: "get",
     }
   );
+
+  // await new Promise((resolve) => setTimeout(resolve, 1000));
+  //wait one second
   const repos = await response.json();
   return repos;
 };
