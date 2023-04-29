@@ -11,7 +11,7 @@ const RepoCard = (data: repoObject) => {
       >
         <span className="font-bold text-black">{data.name}</span>
         <span className="text-gray-800 text-sm">
-          {data?.description?.slice(0, 180) || "Description not available"}{" "}
+          {data?.description?.slice(0, 180) || "Description not available"}
           {data?.description?.length > 180 && "..."}
         </span>
         <div className="flex items-center flex-row justify-between text-gray-800 text-sm">
