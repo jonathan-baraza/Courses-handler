@@ -2,5 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+#repoCard:hover {
+  margin-top: -4px !important;
+  transition: 0.2s;
 }
