@@ -10,7 +10,7 @@ const RepoPage = ({ params: { name } }) => {
       <div className="w-full  text-black p-4 bg-white rounded">
         <Link
           href={"/code/repos"}
-          className="text-sm hover:cursor-pointer hover:underline flex items-center mb-3"
+          className="text-sm hover:cursor-pointer flex items-center mb-4 bg-[#e5e5e5] w-fit py-2 px-3 rounded hover:text-white hover:bg-[#003ea2] duration-75"
         >
           <BiArrowBack />
           <span className="ml-2"> Back to repos</span>
