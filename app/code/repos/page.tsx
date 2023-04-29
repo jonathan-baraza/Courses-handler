@@ -27,6 +27,7 @@ const ReposPage = async () => {
           {repos &&
             repos?.map((repo: any) => (
               <RepoCard
+                key={repo.id}
                 id={repo.id}
                 name={repo.name}
                 description={repo.description}
