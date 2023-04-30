@@ -5,6 +5,7 @@ import Repo from "@/app/components/Repo";
 import Link from "next/link";
 import { BiArrowBack } from "react-icons/bi";
 import RepoDirs from "@/app/components/RepoDirs";
+import { ImSpinner2 } from "react-icons/im";
 
 const RepoPage = ({ params: { name } }) => {
   return (
@@ -18,10 +19,24 @@ const RepoPage = ({ params: { name } }) => {
           <span className="ml-2"> Back to repos</span>
         </Link>
         <h2 className="font-bold text-lg">{name}</h2>
-        <Suspense fallback={<div>Loading repo...</div>}>
+        <Suspense
+          fallback={
+            <div className="mt-3 flex flex-row items-center">
+              <ImSpinner2 className="animate-spin" />
+              <span className="ml-2">Loading repo...</span>
+            </div>
+          }
+        >
           <Repo name={name} />
         </Suspense>
-        <Suspense fallback={<div>Loading directories...</div>}>
+        <Suspense
+          fallback={
+            <div className="mt-3 flex flex-row items-center">
+              <ImSpinner2 className="animate-spin" />
+              <span className="ml-2">Loading directories...</span>
+            </div>
+          }
+        >
           <RepoDirs name={name} />
         </Suspense>
       </div>
