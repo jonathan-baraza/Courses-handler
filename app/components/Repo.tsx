@@ -1,19 +1,19 @@
 import { FaStar, FaCodeBranch, FaEye } from "react-icons/fa";
 const fetchRepo = async (name: string) => {
-  // const response: any = await fetch(
-  //   `https://api.github.com/repos/jonathan-baraza/${name}`,
-  //   {
-  //     method: "get",
-  //   }
-  // );
+  const response: any = await fetch(
+    `https://api.github.com/repos/jonathan-baraza/${name}`,
+    {
+      method: "get",
+    }
+  );
 
-  // const repo = await response.json();
-  const repo = {
-    description: "repo desc",
-    stargazers_count: 33,
-    forks_count: 18,
-    watchers_count: 48,
-  };
+  const repo = await response.json();
+  // const repo = {
+  //   description: "repo desc",
+  //   stargazers_count: 33,
+  //   forks_count: 18,
+  //   watchers_count: 48,
+  // };
   return repo;
 };
 const Repo = async ({ name }: { name: string }) => {
