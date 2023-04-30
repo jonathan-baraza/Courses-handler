@@ -5,4 +5,14 @@
 #repoCard:hover {
   margin-top: -4px !important;
   transition: 0.2s;
+  cursor: pointer;
+}
+#courseCard:hover {
+  margin-top: -4px !important;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.text-dark {
+  color: #343a40 !important;
 }
