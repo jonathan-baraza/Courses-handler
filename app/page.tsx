@@ -1,22 +1,34 @@
-import React from "react";
+"use client";
+import { useState, useEffect } from "react";
+import LoadingPage from "./loading";
 import Courses from "./components/Courses";
-import axios from "axios";
 
-const fetchCourses = async () => {
-  const allCourses = await axios({
-    method: "get",
-    url: "http://localhost:3000/api/courses",
-  });
+const HomePage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [courses, setCourses] = useState([]);
 
-  return allCourses.data;
-};
+  useEffect(() => {
+    const fetchCourses = async () => {
+      const res = await fetch("/api/courses");
+      const data = await res.json();
+      console.log("data");
+      console.log(data);
+      setCourses(data);
+      setIsLoading(false);
+    };
+    fetchCourses();
+  }, []);
 
-const HomePage = async () => {
-  const allCourses = await fetchCourses();
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+
   return (
-    <div className="bg-gray-700 min-h-screen text-white">
-      <Courses allCourses={allCourses} />
-    </div>
+    <>
+      <div className="bg-gray-700 min-h-screen text-white">
+        <Courses allCourses={courses} />
+      </div>
+    </>
   );
 };
 
