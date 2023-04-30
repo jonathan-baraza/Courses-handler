@@ -5,6 +5,9 @@ const fetchRepos = async () => {
     "https://api.github.com/users/jonathan-baraza/repos",
     {
       method: "get",
+      next: {
+        revalidate: 60 * 60,
+      },
     }
   );
 
