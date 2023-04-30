@@ -1,6 +1,6 @@
 import Link from "next/link";
 const fetchRepoContents = async (name: string) => {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 1500));
 
   const contents: any = await fetch(
     `https://api.github.com/repos/jonathan-baraza/${name}/contents`,
